@@ -1,2 +1,14 @@
+import React from 'react';
+import ContactList from './contact-list';
 
+
+function App(){
+    return( <div className="container">
+                <h1 className="text-center">Address Book</h1>
+                <ContactList/>
+            </div>)
+}
+
+
+export default App;
 
