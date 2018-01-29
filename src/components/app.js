@@ -1,18 +1,37 @@
-import React from 'react';
+import React, {Component} from 'react';
 import ContactList from './contact-list';
-import ContactForm from './contact_form'
+import ContactForm from './contact_form';
+import contactData from '../data/contacts.js';
 
 
-function App(){
-    return( <div className="container">
+class App extends Component{
+    constructor(props){
+        super(props);
+
+        this.state = {
+            contacts: contactData
+        }
+
+        this.addContact= this.addContact.bind(this);
+    }
+
+    addContact(contact){
+        console.log('App: addComponent:', contact);
+        this.setState({
+            contacts:[contact, ...this.state.contacts]
+        })
+    }
+    render(){
+        return( <div className="container">
                 <h1 className="text-center">Address Book</h1>
                 <div className='row'>
                     <div className='col-4'>
-                        <ContactForm/>
+                        <ContactForm add={this.addContact}/>
                     </div>
-                    <ContactList/>
+                    <ContactList contacts={this.state.contacts}/>>
                 </div>
             </div>)
+    }
 }
 
 
