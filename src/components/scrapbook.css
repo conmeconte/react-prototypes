@@ -10,3 +10,8 @@
     border: 10px solid #fff; 
     position: absolute; 
 }
+
+.scrapbook-image:hover{
+    transform: rotate(0deg);
+    width: 30%; 
+}
